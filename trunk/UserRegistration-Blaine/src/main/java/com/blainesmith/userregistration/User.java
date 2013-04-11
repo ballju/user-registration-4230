@@ -86,6 +86,14 @@ public class User {
         this.userName = uName;
         this.passWord = pWord;
     }
+    public User(int id, String fName, String lName, String email, String uName, Date date) {
+        this.id = id;
+        this.firstName = fName;
+        this.lastName = lName;
+        this.userName = uName;
+        this.email = email;
+        this.date = date;
+    }
 
     public User(int id, String fName, String lName, String email, String uName, String pWord, Date date) {
         this.id = id;
