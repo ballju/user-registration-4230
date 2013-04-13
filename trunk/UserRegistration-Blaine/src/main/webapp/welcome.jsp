@@ -11,7 +11,7 @@
 	<h2>Welcome!</h2>
 	<h2>You may change your settings below</h2>
 	<form method="get">
-	<input type="button" value="Change Info" onclick="location.href('changePass.jsp')">&nbsp;&nbsp;<input type="button" value="Cancel" onclick="location.href('login.jsp')">
+	<input type="button" value="Change Info" onclick="document.location.href = 'changePass.jsp'">&nbsp;&nbsp;<input type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
 	</form>
 </body>
 </html>
