@@ -9,14 +9,16 @@
 </head>
 <body>
 	<h2>Login</h2>
-	<form method="get">
+	<form method="POST" action="Login">
 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input type="text" name="email"></p>
 	<p>Password: <input type="password" name="pass"></p>
-	<input type="button" value="Login" onclick="location.href('welcome.jsp')">&nbsp;&nbsp;<input type="submit" value="Clear">
+	<input type="submit" value="Login">&nbsp;&nbsp;
+<!--        <input type="button" value="Clear">-->
+        </form>
 	<br />
-	<input type="button" value="Forgot Password?" onclick="location.href('changePass.jsp')">
-	<br />
-	<input type="button" value="Register" onclick="location.href('changePass.jsp')">
+	<input type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
+        <br />
+	<input type="button" value="Register" onclick="document.location.href = 'changePass.jsp'">
 	</form>
 </body>
 </html>

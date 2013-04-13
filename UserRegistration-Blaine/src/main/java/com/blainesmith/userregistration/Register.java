@@ -6,7 +6,6 @@ package com.blainesmith.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Blaine
+ * @author Christopher
  */
-public class UserServlet extends HttpServlet {
+public class Register extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -30,13 +29,20 @@ public class UserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         if(!request.getParameterMap().isEmpty() && request.getParameter("userId") != "")
-        {
-            int userId = Integer.parseInt(request.getParameter("userId"));
-            //User user = UserManager.getId(id);
-            //request.setAttribute("user", user);
-            RequestDispatcher disp = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
-            disp.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet Register</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet Register at " + request.getContextPath() + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+        } finally {            
+            out.close();
         }
     }
 
@@ -68,7 +74,27 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        User user = new User();
+        
+        String email = request.getParameter("email");
+        String pass1 = request.getParameter("pass1");
+        String pass2 = request.getParameter("pass2");
+        String first = request.getParameter("first");
+        String last = request.getParameter("last");
+        
+        user.setUserName(email);
+        user.setPassWord(pass1);
+        user.setFirstName(first);
+        user.setLastName(last);
+        user.setEmail(email);
+        
+        boolean success = UserService.createUser(user);
+        
+        if (success)
+            response.sendRedirect("welcome.jsp");
+        else
+            response.sendRedirect("changePass.jsp");
     }
 
     /**
