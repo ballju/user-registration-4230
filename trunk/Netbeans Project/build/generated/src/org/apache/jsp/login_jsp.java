@@ -51,6 +51,29 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t<h2>Login</h2>\r\n");
+      out.write("        ");
+ 
+          String message = request.getParameter("message");
+          
+          if (message != null && !message.equals("")) {
+        
+      out.write("\r\n");
+      out.write("            <p id=\"message\" name=\"message\" class=\"error\">. ");
+      out.print( message );
+      out.write("</p>\r\n");
+      out.write("        ");
+
+          }
+          else {
+        
+      out.write("\r\n");
+      out.write("        <p id=\"message\" name=\"message\" class=\"error\"></p>\r\n");
+      out.write("        ");
+
+          }
+        
+      out.write("\r\n");
+      out.write("        \r\n");
       out.write("\t<form method=\"POST\" action=\"Login\">\r\n");
       out.write("\t<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input type=\"text\" name=\"email\"></p>\r\n");
       out.write("\t<p>Password: <input type=\"password\" name=\"pass\"></p>\r\n");

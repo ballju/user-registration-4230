@@ -8,10 +8,25 @@
 <link href="login.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
+    <% 
+          String message = request.getParameter("message");
+          
+          if (message != null && !message.equals("")) {
+        %>
+            <p id="message" name="message" class="error-message"><%= message %></p>
+        <%
+          }
+          else {
+        %>
+        <p id="message" name="message" class="error-message"></p>
+        <%
+          }
+        %>
     <form action="ChangePass" method="POST">
         <p>Please enter the email address you provided when you registered:</p>
         <input type="text" name="email" />
         <input type="submit" value="Submit" />
     </form>
+    <input type="button" value="Cancel" onclick="document.location.href = 'login.jsp'" />
 </body>
 </html>

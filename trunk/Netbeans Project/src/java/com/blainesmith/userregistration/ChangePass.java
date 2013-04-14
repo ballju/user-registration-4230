@@ -6,6 +6,7 @@ package com.blainesmith.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -85,8 +86,11 @@ public class ChangePass extends HttpServlet {
         
         if (success)
             response.sendRedirect("login.jsp");
-        else
-            response.sendRedirect("changePass.jsp");
+        else {
+            String message = URLEncoder.encode("There was an error changing the password", "UTF-8");
+            
+            response.sendRedirect("changePass.jsp?message=" + message);
+        }
     }
 
     /**

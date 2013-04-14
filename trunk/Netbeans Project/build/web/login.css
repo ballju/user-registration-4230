@@ -18,3 +18,26 @@ a
 {
 	color:White;
 }
+
+.error-message
+{
+    color: red;
+    font-size: 20px;
+}
+
+.spaced 
+{
+    margin-left: 10px;
+}
+
+.error input
+{
+    border-color: red;
+    color: red;
+}
+
+.success input
+{
+    border-color: green;
+    color: green;
+}
