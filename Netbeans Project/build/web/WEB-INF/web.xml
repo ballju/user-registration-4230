@@ -16,6 +16,10 @@
         <servlet-name>ChangePass</servlet-name>
         <servlet-class>com.blainesmith.userregistration.ChangePass</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangeInfo</servlet-name>
+        <servlet-class>com.blainesmith.userregistration.ChangeInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/UserServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ChangePass</servlet-name>
         <url-pattern>/ChangePass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeInfo</servlet-name>
+        <url-pattern>/ChangeInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

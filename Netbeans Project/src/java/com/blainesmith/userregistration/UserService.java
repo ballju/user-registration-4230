@@ -32,6 +32,10 @@ public class UserService {
         return true;
     }
     
+    public static boolean updateUser (User user) {
+        return true;
+    }
+    
     public static boolean resetPassword (User user) {
         Random r = new Random(Calendar.getInstance().getTimeInMillis());
         

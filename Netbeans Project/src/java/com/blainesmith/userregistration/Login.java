@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -85,8 +86,12 @@ public class Login extends HttpServlet {
         
         boolean success = UserService.logUserIn(user);
         
-        if (success)
+        if (success) {
             response.sendRedirect("welcome.jsp");
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+        }
         else
             response.sendRedirect("login.jsp");
     }
