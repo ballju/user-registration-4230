@@ -6,6 +6,7 @@ package com.blainesmith.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -93,8 +94,11 @@ public class Register extends HttpServlet {
         
         if (success)
             response.sendRedirect("welcome.jsp");
-        else
-            response.sendRedirect("register.jsp");
+        else {
+            String message = URLEncoder.encode("There was an error creating the user", "UTF-8");
+            
+            response.sendRedirect("register.jsp?message=" + message);
+        }
     }
 
     /**
