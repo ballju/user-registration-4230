@@ -1,0 +1,20 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	background-color:Purple;
+}
+h2
+{
+	font-family:Helvetica;
+	color:White;
+}
+p
+{
+	font-family:Helvetica;
+	color:White;
+}
+a
+{
+	color:White;
+}
