@@ -6,6 +6,7 @@ package com.blainesmith.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -84,16 +85,19 @@ public class Login extends HttpServlet {
         user.setUserName(username);
         user.setPassWord(password);
         
-        boolean success = UserService.logUserIn(user);
+        user = UserService.logUserIn(user);
         
-        if (success) {
-            response.sendRedirect("welcome.jsp");
-            
+        if (user != null) {     
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            
+            response.sendRedirect("welcome.jsp");
         }
-        else
-            response.sendRedirect("login.jsp");
+        else {
+            String message = URLEncoder.encode("There was an error logging in", "UTF-8"); 
+            
+            response.sendRedirect("login.jsp?message=" + message);
+        }
     }
 
     /**
