@@ -12,9 +12,11 @@
     Object u = session.getAttribute("user");
     
     User user = new User();
-    if (u != null) {
+    if (u != null)
         user = (User)u;
-    }
+    else
+        response.sendRedirect("login.jsp");
+        
 %>
 
 <html>
@@ -35,12 +37,9 @@
         <h2>Welcome!</h2>
     <% } %>
 	<h2>You may change your settings below</h2>
-	<form method="get">
-            <input type="button" value="Change Info" onclick="document.location.href = 'changeInfo.jsp'">
-	</form>
+        <input type="button" value="Change Info" onclick="document.location.href = 'changeInfo.jsp'">
         <form action="Logout" method="POST">
             <input type="submit" value="Logout" />
-            <input class="spaced" type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
         </form>
 </body>
 </html>

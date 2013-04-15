@@ -24,8 +24,20 @@ public class UserService {
     private final static String emailAddress = "cs4230.7654@gmail.com";
     private final static String emailPassword = "brought$67";
     
-    public static boolean logUserIn (User user) {
-        return true;
+    public static User logUserIn (User u) {
+        try {
+            User user = new User();
+            user.setFirstName("Test");
+            user.setLastName("McTesterson");
+            user.setEmail("christopherbyronpink@yahoo.com");
+            user.setPassWord("Aa@1234");
+            user.setUserName("Testy");
+            
+            return user;
+        }
+        catch (Exception ex) {
+            return null;
+        }
     }
     
     public static boolean createUser (User user) {
