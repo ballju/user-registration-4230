@@ -81,7 +81,7 @@
         <div class="control-group input-append">
             <p>Re-enter Password: <input data-description="pass2" data-describedby="pass2-description" type="password" id="pass2" name="pass2" data-conditional="pass2"><span class="error" id="pass2-description"></span></p>
         </div>
-	<input class="btn btn-primary" type="submit" value="Save">&nbsp;&nbsp;<input type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
+	<input class="button" type="submit" value="Save">&nbsp;&nbsp;<input class="button" type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
 	</form>
 </body>
 </html>

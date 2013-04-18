@@ -33,13 +33,13 @@
 	<form method="POST" action="Login">
 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input type="text" name="email"></p>
 	<p>Password: <input type="password" name="pass"></p>
-	<input type="submit" value="Login">&nbsp;&nbsp;
+	<input class="button" type="submit" value="Login">&nbsp;&nbsp;
 <!--        <input type="button" value="Clear">-->
         </form>
 	<br />
-	<input type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
+	<input class="button" type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
         <br />
-	<input type="button" value="Register" onclick="document.location.href = 'register.jsp'">
+	<input class="button" type="button" value="Register" onclick="document.location.href = 'register.jsp'">
 	</form>
 </body>
 </html>
