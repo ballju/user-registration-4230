@@ -47,7 +47,7 @@ public class UserService {
     public static boolean createUser (User user)
     {
 
-   /*     Connection conn = null;
+        Connection conn = null;
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             conn =
@@ -77,7 +77,7 @@ public class UserService {
 
         }
 
-*/
+
 
         return true;
     }
