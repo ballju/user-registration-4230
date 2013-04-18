@@ -2,7 +2,10 @@
 
 body
 {
-	background-color:Purple;
+	background-color: #532E63;
+        color: #F0F0F0;
+        font-family: Helvetica, arial, sans-serif;
+        letter-spacing: 2px;
 }
 h2
 {
@@ -17,6 +20,18 @@ p
 a
 {
 	color:White;
+}
+
+.button 
+{
+    background-color: #CCCCCC;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid black !important;
+    color: #424242;
+    padding: 5px;
+    margin: 2px;
 }
 
 .error-message

@@ -37,9 +37,9 @@
         <h2>Welcome!</h2>
     <% } %>
 	<h2>You may change your settings below</h2>
-        <input type="button" value="Change Info" onclick="document.location.href = 'changeInfo.jsp'">
+        <input class="button" type="button" value="Change Info" onclick="document.location.href = 'changeInfo.jsp'">
         <form action="Logout" method="POST">
-            <input type="submit" value="Logout" />
+            <input class="button" type="submit" value="Logout" />
         </form>
 </body>
 </html>

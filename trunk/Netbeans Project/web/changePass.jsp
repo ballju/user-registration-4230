@@ -25,8 +25,8 @@
     <form action="ChangePass" method="POST">
         <p>Please enter the email address you provided when you registered:</p>
         <input type="text" name="email" />
-        <input type="submit" value="Submit" />
+        <input class="button" type="submit" value="Submit" />
     </form>
-    <input type="button" value="Cancel" onclick="document.location.href = 'login.jsp'" />
+    <input class="button" type="button" value="Cancel" onclick="document.location.href = 'login.jsp'" />
 </body>
 </html>

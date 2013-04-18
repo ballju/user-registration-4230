@@ -109,9 +109,9 @@
                     </td>
                 </tr>
             </table>
-            <input type="submit" value="Submit" />
+            <input class="button" type="submit" value="Submit" />
             <br />
-            <input type="button" value="Cancel" onclick="document.location.href = 'welcome.jsp'" />
+            <input class="button" type="button" value="Cancel" onclick="document.location.href = 'welcome.jsp'" />
         </form>
     </body>
 </html>
