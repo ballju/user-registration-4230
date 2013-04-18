@@ -14,15 +14,19 @@ import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
  * @author Christopher
  */
 public class UserService {
+
     
     private final static String emailAddress = "cs4230.7654@gmail.com";
     private final static String emailPassword = "brought$67";
+
     
     public static User logUserIn (User u) {
         try {
@@ -40,11 +44,49 @@ public class UserService {
         }
     }
     
-    public static boolean createUser (User user) {
+    public static boolean createUser (User user)
+    {
+
+        Connection conn = null;
+        try {
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            conn =
+                    DriverManager.getConnection("jdbc:mysql://scarlet.arvixe.com:3306" +
+                            "user=Justin&password=admin");
+
+            // Do something with the Connection
+
+            // Executing SQl statements
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("select * from students");
+
+
+            int id = randomid();
+            String fname = user.getFirstName(); String lname = user.getLastName();String email = user.getEmail();String pass = user.getPassWord();
+
+            String str = "insert into students (id,first_name,last_name,email,password) values (id,fname, lname, email, pass)";
+            s.execute(str);
+
+
+
+        } catch (SQLException ex) {
+            // handle any errors
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+
+        }
+
+
+
         return true;
     }
     
-    public static boolean updateUser (User user) {
+    public static boolean updateUser (User user)
+    {
+
+
+
         return true;
     }
     
@@ -62,7 +104,12 @@ public class UserService {
         }
         
         String newPass = new String(newPassArr);
-        
+
+
+
+
+
+
         sendEmail(user.getEmail(), newPass);
             
         return true;
@@ -122,5 +169,10 @@ public class UserService {
             ex.printStackTrace();
         }
     }
-    
+    private static int randomid()
+    {
+        Random generator = new Random();
+        int r = generator.nextInt();
+        return generator.nextInt(100000) + 1;
+    }
 }
