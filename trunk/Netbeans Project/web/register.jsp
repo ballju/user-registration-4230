@@ -76,7 +76,7 @@
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name: <input data-description="last" data-describedby="last-description" id="last" data-required type="text" name="last"><span class="error" id="last-description"></span><p>
         </div>
         <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password: <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])" data-required type="password" id="pass1" name="pass1"><span class="error" id="pass1-description"></span></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password: <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])(.{8})" data-required type="password" id="pass1" name="pass1"><span class="error" id="pass1-description"></span></p>
         </div>
         <div class="control-group input-append">
             <p>Re-enter Password: <input data-description="pass2" data-describedby="pass2-description" type="password" id="pass2" name="pass2" data-conditional="pass2"><span class="error" id="pass2-description"></span></p>
