@@ -184,13 +184,14 @@ public class DAO {
         try {         
             prepareConnection();           
             
-            String statement = "INSERT INTO UserAdministration.User (email, first_name, last_name, password) VALUES (?, ?, ?, ?)";
+            String statement = "UPDATE UserAdministration.User SET email=?, first_name=?, last_name=? WHERE email = ?";
             
-            PreparedStatement ps = c.prepareStatement(statement, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = c.prepareStatement(statement);
 
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getFirstName());
             ps.setString(3, user.getLastName());
+            ps.setString(4, user.getEmail());
 
             ps.executeUpdate();
         }
@@ -205,4 +206,32 @@ public class DAO {
         
         return user;
     }
+    
+    public static User updateUserPassword(User user) throws SQLException {
+        try {         
+            prepareConnection();           
+            
+            String statement = "UPDATE UserAdministration.User SET password=? WHERE email = ?";
+            
+            PreparedStatement ps = c.prepareStatement(statement);
+            
+            String sh = Password.getSaltedHash(user.getPassWord());
+
+            ps.setString(1, sh);
+            ps.setString(2, user.getEmail());
+
+            ps.executeUpdate();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            user.setError(ex.getMessage());          
+            return user;
+        }
+        finally {
+            closeConnection();
+        }
+        
+        return user;
+    }
+    
 }

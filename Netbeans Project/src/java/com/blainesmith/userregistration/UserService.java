@@ -63,37 +63,67 @@ public class UserService {
         }
     }
     
-    public static boolean updateUser (User user)
+    public static User updateUserInfo (User user)
     {
-
-
-
-        return true;
+        try {
+        user = DAO.updateUserInfo(user);
+        }
+        catch (Exception ex) {
+            user.setError(ex.getMessage());
+            return user;
+        }
+        
+        return user;
+    }
+    
+    public static User updateUserPassword (User user) {
+        try {
+            user = DAO.updateUserPassword(user);
+        }
+        catch (Exception ex) {
+            user.setError(ex.getMessage());
+            return user;
+        }
+        
+        return user;
     }
     
     public static String resetPassword (User user) {
-        boolean found = DAO.checkUserByEmail(user.getEmail());
-        
-        if (!found)
-            return "That user was not found";
-        
-        Random r = new Random(Calendar.getInstance().getTimeInMillis());
-        
-        char[] newPassArr = new char[10];
-        for (int i = 0; i < 10; i++) {
-            int charCode = r.nextInt(128);
-            
-            if ((charCode >= 0 && charCode <= 32) || charCode == 127 || charCode == 92)
-                charCode = 97;
-            System.out.println(charCode);
-            newPassArr[i] = (char)charCode;
-        }
-        
-        String newPass = new String(newPassArr);
+        try {
+            boolean found = DAO.checkUserByEmail(user.getEmail());
 
-        sendEmail(user.getEmail(), newPass);
+            if (!found)
+                return "That user was not found";
+
+            Random r = new Random(Calendar.getInstance().getTimeInMillis());
+
+            char[] newPassArr = new char[10];
+            for (int i = 0; i < 10; i++) {
+                int charCode = r.nextInt(128);
+
+                if ((charCode >= 0 && charCode <= 32) || charCode == 127 || charCode == 92)
+                    charCode = 97;
+                System.out.println(charCode);
+                newPassArr[i] = (char)charCode;
+            }
+
+            String newPass = new String(newPassArr);
             
-        return "SUCCESS";
+            user.setPassWord(newPass);
+            user = DAO.updateUserPassword(user);
+            
+            if (user.getError() != null && !user.getError().equals("")) {
+                return user.getError();
+            }
+
+            sendEmail(user.getEmail(), newPass);
+
+            return "SUCCESS";
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            return ex.getMessage();
+        }
     }
     
     private static void sendEmail(String recipientEmail, String newPassword) {

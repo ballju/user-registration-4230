@@ -95,8 +95,9 @@ public class Register extends HttpServlet {
         
         if (user.getError() == null || user.getError().equals("")) {
             HttpSession session = request.getSession();
+            user.setPassWord(null);
             session.setAttribute("user", user);
-            System.out.println(user.getId());
+
             response.sendRedirect("welcome.jsp");
         }
         else {

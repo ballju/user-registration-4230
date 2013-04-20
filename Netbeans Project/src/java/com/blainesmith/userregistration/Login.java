@@ -89,6 +89,7 @@ public class Login extends HttpServlet {
         
         if (user != null && (user.getError() == null || user.getError().equals(""))) {     
             HttpSession session = request.getSession();
+            user.setPassWord(null);
             session.setAttribute("user", user);
             
             response.sendRedirect("welcome.jsp");
