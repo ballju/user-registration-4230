@@ -180,7 +180,7 @@ public class DAO {
         return user;
     }
     
-    public static User updateUserInfo(User user) throws SQLException {
+    public static User updateUserInfo(String email, User user) throws SQLException {
         try {         
             prepareConnection();           
             
@@ -191,7 +191,7 @@ public class DAO {
             ps.setString(1, user.getEmail());
             ps.setString(2, user.getFirstName());
             ps.setString(3, user.getLastName());
-            ps.setString(4, user.getEmail());
+            ps.setString(4, email);
 
             ps.executeUpdate();
         }

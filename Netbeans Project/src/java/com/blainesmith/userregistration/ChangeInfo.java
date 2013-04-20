@@ -82,6 +82,8 @@ public class ChangeInfo extends HttpServlet {
         if (u != null) {
             User user = (User)u;
             
+            String oldEmail = user.getEmail();
+            
             String email = request.getParameter("email");
             String pass1 = request.getParameter("pass1");
             String pass2 = request.getParameter("pass2");
@@ -97,7 +99,7 @@ public class ChangeInfo extends HttpServlet {
             if (!last.equals(""))
                 user.setLastName(last);
             
-            user = UserService.updateUserInfo(user);
+            user = UserService.updateUserInfo(oldEmail, user);
             
             if(user.getPassWord() != null && !user.getPassWord().equals("")) {
                 user = UserService.updateUserPassword(user);
