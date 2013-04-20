@@ -65,7 +65,7 @@
                     </td>
                     <td>
                         <div class="control-group input-append">
-                            <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])" type="password" id="pass1" name="pass1">
+                            <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^!@#\$%]*[!@#\$%])(?=[^0-9]*[0-9])(.{8})" type="password" id="pass1" name="pass1">
                             <span class="error" id="pass1-description"></span>
                         </div>
                     </td>

@@ -32,7 +32,7 @@
 					},
                                         pass1 : {
 						required : '<span style="margin-left: 10px; color: red;">Required</span>',
-                                                pattern : '<span style="margin-left: 10px; color: red;">Password must contain a letter, a number, an uppercase letter and a symbol</span>'
+                                                pattern : '<span style="margin-left: 10px; color: red;">Password must contain a letter, a number, an uppercase letter, a sybmol and be 8 characters long</span>'
 					},
                                         pass2 : {
                                                 conditional : '<span style="margin-left: 10px; color: red;">Passwords must be the same</span>'
@@ -76,7 +76,7 @@
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name: <input data-description="last" data-describedby="last-description" id="last" data-required type="text" name="last"><span class="error" id="last-description"></span><p>
         </div>
         <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password: <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^!@#\$%]*[!@#\$%])(.{8})" data-required type="password" id="pass1" name="pass1"><span class="error" id="pass1-description"></span></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password: <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^!@#\$%]*[!@#\$%])(?=[^0-9]*[0-9])(.{8})" data-required type="password" id="pass1" name="pass1"><span class="error" id="pass1-description"></span></p>
         </div>
         <div class="control-group input-append">
             <p>Re-enter Password: <input data-description="pass2" data-describedby="pass2-description" type="password" id="pass2" name="pass2" data-conditional="pass2"><span class="error" id="pass2-description"></span></p>
