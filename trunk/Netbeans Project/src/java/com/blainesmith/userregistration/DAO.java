@@ -52,7 +52,7 @@ public class DAO {
             ResultSet rs = ps.executeQuery();
             
             if (!rs.isBeforeFirst()) {
-                user.setError("The user was not found");
+                user.setError("That user was not found");
                 
                 return user;
             }
@@ -232,6 +232,30 @@ public class DAO {
         }
         
         return user;
+    }
+    
+    public static String deleteUser(User user) throws SQLException {
+        
+        try {         
+            prepareConnection();           
+            
+            String statement = "DELETE FROM UserAdministration.User WHERE email = ?";
+            
+            PreparedStatement ps = c.prepareStatement(statement);
+            
+            ps.setString(1, user.getEmail());
+
+            ps.executeUpdate();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            return ex.getMessage();
+        }
+        finally {
+            closeConnection();
+        }
+        
+        return "SUCCESS";
     }
     
 }

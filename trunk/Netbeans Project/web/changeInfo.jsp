@@ -113,5 +113,10 @@
             <br />
             <input class="button" type="button" value="Cancel" onclick="document.location.href = 'welcome.jsp'" />
         </form>
+            <br />
+            <br />
+            <form action="DeleteUser" method="POST">
+                <input class="button" type="submit" value="Delete User" />
+            </form>
     </body>
 </html>
