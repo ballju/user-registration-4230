@@ -15,6 +15,8 @@ public class User {
     private String passWord;
     private Date date;
     private int id;
+    
+    private String error;
 
     public Date getDate() {
         return date;
@@ -70,6 +72,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+    
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 
     public User() {
