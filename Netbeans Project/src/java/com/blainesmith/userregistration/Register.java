@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -90,12 +91,16 @@ public class Register extends HttpServlet {
         user.setLastName(last);
         user.setEmail(email);
         
-        boolean success = UserService.createUser(user);
+        user = UserService.createUser(user);
         
-        if (success)
+        if (user.getError() == null || user.getError().equals("")) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            System.out.println(user.getId());
             response.sendRedirect("welcome.jsp");
+        }
         else {
-            String message = URLEncoder.encode("There was an error creating the user", "UTF-8");
+            String message = URLEncoder.encode(user.getError(), "UTF-8");
             
             response.sendRedirect("register.jsp?message=" + message);
         }
@@ -108,6 +113,6 @@ public class Register extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Registers the user";
     }// </editor-fold>
 }

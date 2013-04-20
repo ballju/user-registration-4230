@@ -15,6 +15,8 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,58 +29,38 @@ public class UserService {
     private final static String emailPassword = "brought$67";
 
     
-    public static User logUserIn (User u) {
+    public static User logUserIn (User user) {
         try {
-            User user = new User();
-            user.setFirstName("Test");
-            user.setLastName("McTesterson");
-            user.setEmail("christopherbyronpink@yahoo.com");
-            user.setPassWord("Aa@1234");
-            user.setUserName("Testy");
+            user = DAO.getUser(user);
             
             return user;
         }
         catch (Exception ex) {
-            return null;
+            user.setError(ex.getMessage());
+            return user;
         }
     }
     
-    public static boolean createUser (User user)
+    public static User createUser (User user)
     {
-
-        Connection conn = null;
         try {
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            conn =
-                    DriverManager.getConnection("jdbc:mysql://scarlet.arvixe.com:3306" +
-                            "user=Justin&password=admin");
-
-            // Do something with the Connection
-
-            // Executing SQl statements
-            Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select * from students");
-
-
-            int id = randomid();
-            String fname = user.getFirstName(); String lname = user.getLastName();String email = user.getEmail();String pass = user.getPassWord();
-
-            String str = "insert into students (id,first_name,last_name,email,password) values (id,fname, lname, email, pass)";
-            s.execute(str);
-
-
-
-        } catch (SQLException ex) {
-            // handle any errors
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-
+            if (user.getEmail() == null || user.getEmail().equals("")) {
+                user.setError("Email can not be null");          
+                return user;
+            }
+            
+            if (user.getPassWord() == null || user.getPassWord().equals("")) {
+                user.setError("Password can not be null");          
+                return user;
+            }
+            
+            return DAO.insertUser(user);
+        } 
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            user.setError(ex.getMessage());          
+            return user;
         }
-
-
-
-        return true;
     }
     
     public static boolean updateUser (User user)
@@ -89,7 +71,12 @@ public class UserService {
         return true;
     }
     
-    public static boolean resetPassword (User user) {
+    public static String resetPassword (User user) {
+        boolean found = DAO.checkUserByEmail(user.getEmail());
+        
+        if (!found)
+            return "That user was not found";
+        
         Random r = new Random(Calendar.getInstance().getTimeInMillis());
         
         char[] newPassArr = new char[10];
@@ -104,14 +91,9 @@ public class UserService {
         
         String newPass = new String(newPassArr);
 
-
-
-
-
-
         sendEmail(user.getEmail(), newPass);
             
-        return true;
+        return "SUCCESS";
     }
     
     private static void sendEmail(String recipientEmail, String newPassword) {
@@ -167,11 +149,5 @@ public class UserService {
         catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-    private static int randomid()
-    {
-        Random generator = new Random();
-        int r = generator.nextInt();
-        return generator.nextInt(100000) + 1;
     }
 }

@@ -79,22 +79,22 @@ public class Login extends HttpServlet {
         
         User user = new User();
         
-        String username = request.getParameter("email");
+        String email = request.getParameter("email");
         String password = request.getParameter("pass");
         
-        user.setUserName(username);
+        user.setEmail(email);
         user.setPassWord(password);
         
         user = UserService.logUserIn(user);
         
-        if (user != null) {     
+        if (user != null && (user.getError() == null || user.getError().equals(""))) {     
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             
             response.sendRedirect("welcome.jsp");
         }
         else {
-            String message = URLEncoder.encode("There was an error logging in", "UTF-8"); 
+            String message = URLEncoder.encode(user.getError(), "UTF-8"); 
             
             response.sendRedirect("login.jsp?message=" + message);
         }

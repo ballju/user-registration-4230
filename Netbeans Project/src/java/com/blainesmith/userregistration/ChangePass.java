@@ -82,12 +82,12 @@ public class ChangePass extends HttpServlet {
         
         user.setEmail(email);
         
-        boolean success = UserService.resetPassword(user);
+        String result = UserService.resetPassword(user);
         
-        if (success)
+        if (result.equals("SUCCESS"))
             response.sendRedirect("login.jsp");
         else {
-            String message = URLEncoder.encode("There was an error changing the password", "UTF-8");
+            String message = URLEncoder.encode(result, "UTF-8");
             
             response.sendRedirect("changePass.jsp?message=" + message);
         }
