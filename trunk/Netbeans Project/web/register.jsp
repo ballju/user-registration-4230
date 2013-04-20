@@ -32,7 +32,7 @@
 					},
                                         pass1 : {
 						required : '<span style="margin-left: 10px; color: red;">Required</span>',
-                                                pattern : '<span style="margin-left: 10px; color: red;">Password must contain a letter, a number, an uppercase letter, a sybmol and be 8 characters long</span>'
+                                                pattern : '<span style="margin-left: 10px; color: red;">Password must contain a lowercase letter, a number, an uppercase letter, a symbol and be 8 characters long</span>'
 					},
                                         pass2 : {
                                                 conditional : '<span style="margin-left: 10px; color: red;">Passwords must be the same</span>'

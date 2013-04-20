@@ -39,7 +39,7 @@
                         pattern : '<span style="margin-left: 10px; color: red;">Must be a valid email</span>'
                     },
                     pass1 : {
-                        pattern : '<span style="margin-left: 10px; color: red;">Password must contain a letter, a number, an uppercase letter and a symbol</span>'
+                        pattern : '<span style="margin-left: 10px; color: red;">Password must contain a lowercase letter, a number, an uppercase letter, a symbol and be 8 characters long</span>'
                     },
                     pass2 : {
                         conditional : '<span style="margin-left: 10px; color: red;">Passwords must be the same</span>'
