@@ -97,7 +97,14 @@ public class ChangeInfo extends HttpServlet {
             if (!last.equals(""))
                 user.setLastName(last);
             
-            UserService.updateUser(user);
+            user = UserService.updateUserInfo(user);
+            
+            if(user.getPassWord() != null && !user.getPassWord().equals("")) {
+                user = UserService.updateUserPassword(user);
+            }
+            
+            user.setPassWord(null);
+            session.setAttribute("user", user);
             
             response.sendRedirect("welcome.jsp");
         }
