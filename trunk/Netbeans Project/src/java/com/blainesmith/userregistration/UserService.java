@@ -63,10 +63,10 @@ public class UserService {
         }
     }
     
-    public static User updateUserInfo (User user)
+    public static User updateUserInfo (String email, User user)
     {
         try {
-        user = DAO.updateUserInfo(user);
+        user = DAO.updateUserInfo(email, user);
         }
         catch (Exception ex) {
             user.setError(ex.getMessage());
@@ -93,7 +93,7 @@ public class UserService {
             boolean found = DAO.checkUserByEmail(user.getEmail());
 
             if (!found)
-                return "That user was not found";
+                return "That email does not exist in our records";
 
             Random r = new Random(Calendar.getInstance().getTimeInMillis());
 
