@@ -180,4 +180,14 @@ public class UserService {
             ex.printStackTrace();
         }
     }
+    
+    public static String deleteUser(User user) {
+        try {
+            return DAO.deleteUser(user);
+        }
+        catch (Exception ex) {
+            return ex.getMessage();
+        }
+    }
+    
 }
