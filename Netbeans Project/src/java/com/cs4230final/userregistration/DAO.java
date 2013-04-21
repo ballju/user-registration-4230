@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Christopher Pink
- */
 public class DAO {
     
     private static final String CONNECTION_STRING = "jdbc:mysql://scarlet.arvixe.com";
