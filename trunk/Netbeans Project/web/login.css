@@ -17,6 +17,7 @@ p
 	font-family:Helvetica;
 	color:White;
 }
+
 a
 {
 	color:White;
@@ -37,7 +38,7 @@ a
 .error-message
 {
     color: red;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .spaced 
@@ -55,4 +56,31 @@ a
 {
     border-color: green;
     color: green;
+}
+
+#content	
+{
+    position:absolute; 
+    top:50%; 
+    height:300px; 
+    margin-top:-150px;
+    
+    width: 100%;
+    text-align: center;
+
+}
+
+#loginTable
+{
+    margin: auto;
+    text-align: left;
+}
+
+#wrapper 
+{  
+    border: 1px solid #B08CBF;
+    width: 30%;
+    margin: auto;
+    padding: 5px;
+    padding-bottom: 30px;
 }
