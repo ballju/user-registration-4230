@@ -64,24 +64,68 @@
           }
         %>
     
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h2>User Info</h2>
+	<h2>User Info</h2>
 	<form id="registerForm" method="POST" action="Register">
-        <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input data-description="email" data-describedby="email-description" data-required data-pattern="^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" type="text" id="email" name="email"><span class="error" id="email-description"></span></p>
-        </div>
-        <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name: <input data-description="first" data-describedby="first-description" id="first" data-required type="text" name="first"><span class="error" id="first-description"></span></p>
-        </div>
-        <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name: <input data-description="last" data-describedby="last-description" id="last" data-required type="text" name="last"><span class="error" id="last-description"></span><p>
-        </div>
-        <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;New Password: <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^!@#\$%]*[!@#\$%])(?=[^0-9]*[0-9])(.{8})" data-required type="password" id="pass1" name="pass1"><span class="error" id="pass1-description"></span></p>
-        </div>
-        <div class="control-group input-append">
-            <p>Re-enter Password: <input data-description="pass2" data-describedby="pass2-description" type="password" id="pass2" name="pass2" data-conditional="pass2"><span class="error" id="pass2-description"></span></p>
-        </div>
-	<input class="button" type="submit" value="Save">&nbsp;&nbsp;<input class="button" type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
+            <table>
+                <tr>
+                    <td>
+                        Email: 
+                    </td>
+                    <td>
+                        <div class="control-group input-append">
+                            <input data-description="email" data-describedby="email-description" data-required data-pattern="^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$" type="text" id="email" name="email">
+                            <span class="error" id="email-description"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        First Name: 
+                    </td>
+                    <td>
+                        <div class="control-group input-append">
+                            <input data-description="first" data-describedby="first-description" id="first" data-required type="text" name="first">
+                            <span class="error" id="first-description"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Last Name: 
+                    </td>
+                    <td>
+                        <div class="control-group input-append">
+                            <input data-description="last" data-describedby="last-description" id="last" data-required type="text" name="last">
+                            <span class="error" id="last-description"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        New Password:  
+                    </td>
+                    <td>
+                        <div class="control-group input-append">
+                            <input data-description="pass1" data-describedby="pass1-description" data-pattern="(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=[^!@#\$%]*[!@#\$%])(?=[^0-9]*[0-9])(.{8})" data-required type="password" id="pass1" name="pass1">
+                            <span class="error" id="pass1-description"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Re-enter Password:  
+                    </td>
+                    <td>
+                        <div class="control-group input-append">
+                            <input data-description="pass2" data-describedby="pass2-description" type="password" id="pass2" name="pass2" data-conditional="pass2">
+                            <span class="error" id="pass2-description"></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <input class="button" type="submit" value="Save">
+            <input class="button" type="button" value="Cancel" onclick="document.location.href = 'login.jsp'">
 	</form>
 </body>
 </html>
