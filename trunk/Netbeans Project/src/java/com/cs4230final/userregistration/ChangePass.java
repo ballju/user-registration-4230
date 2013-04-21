@@ -77,8 +77,11 @@ public class ChangePass extends HttpServlet {
         
         String result = UserService.resetPassword(user);
         
-        if (result.equals("SUCCESS"))
-            response.sendRedirect("login.jsp");
+        if (result.equals("SUCCESS")) {
+            String message = URLEncoder.encode("A new password has been sent to the email you provided", "UTF-8");
+            
+            response.sendRedirect("login.jsp?message=" + message);
+        }
         else {
             String message = URLEncoder.encode(result, "UTF-8");
             
