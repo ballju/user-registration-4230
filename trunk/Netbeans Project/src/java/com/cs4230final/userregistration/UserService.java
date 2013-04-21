@@ -103,7 +103,7 @@ public class UserService {
 
                 if ((charCode >= 0 && charCode <= 32) || charCode == 127 || charCode == 92)
                     charCode = 97;
-                System.out.println(charCode);
+
                 newPassArr[i] = (char)charCode;
             }
 
