@@ -8,6 +8,7 @@
 <link href="login.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
+    <p>Please enter the email address you provided when you registered:</p>
     <% 
           String message = request.getParameter("message");
           
@@ -23,7 +24,6 @@
           }
         %>
     <form action="ChangePass" method="POST">
-        <p>Please enter the email address you provided when you registered:</p>
         <input type="text" name="email" />
         <input class="button" type="submit" value="Submit" />
     </form>

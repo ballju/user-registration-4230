@@ -49,6 +49,7 @@
 </script>
 </head>
 <body>
+    <h2>User Info</h2>
     <% 
           String message = request.getParameter("message");
           
@@ -64,7 +65,6 @@
           }
         %>
     
-	<h2>User Info</h2>
 	<form id="registerForm" method="POST" action="Register">
             <table>
                 <tr>
