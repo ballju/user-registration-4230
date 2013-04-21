@@ -2,21 +2,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.blainesmith.userregistration;
+package com.cs4230final.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.net.*;
 
 /**
  *
  * @author Christopher
  */
-public class ChangePass extends HttpServlet {
+public class ChangeInfo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -36,10 +37,10 @@ public class ChangePass extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet ChangePass</title>");            
+//            out.println("<title>Servlet ChangeInfo</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println("<h1>Servlet ChangePass at " + request.getContextPath() + "</h1>");
+//            out.println("<h1>Servlet ChangeInfo at " + request.getContextPath() + "</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
         } finally {            
@@ -75,21 +76,44 @@ public class ChangePass extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Object u = session.getAttribute("user");
         
-        User user = new User();
-        
-        String email = request.getParameter("email");
-        
-        user.setEmail(email);
-        
-        String result = UserService.resetPassword(user);
-        
-        if (result.equals("SUCCESS"))
-            response.sendRedirect("login.jsp");
-        else {
-            String message = URLEncoder.encode(result, "UTF-8");
+        if (u != null) {
+            User user = (User)u;
             
-            response.sendRedirect("changePass.jsp?message=" + message);
+            String oldEmail = user.getEmail();
+            
+            String email = request.getParameter("email");
+            String pass1 = request.getParameter("pass1");
+            String pass2 = request.getParameter("pass2");
+            String first = request.getParameter("first");
+            String last = request.getParameter("last");
+            
+            if (!email.equals(""))
+                user.setEmail(email);
+            if (!pass1.equals(""))
+                user.setPassWord(pass1);
+            if (!first.equals(""))
+                user.setFirstName(first);
+            if (!last.equals(""))
+                user.setLastName(last);
+            
+            user = UserService.updateUserInfo(oldEmail, user);
+            
+            if(user.getPassWord() != null && !user.getPassWord().equals("")) {
+                user = UserService.updateUserPassword(user);
+            }
+            
+            user.setPassWord(null);
+            session.setAttribute("user", user);
+            
+            response.sendRedirect("welcome.jsp");
+        }
+        else {
+            String message = URLEncoder.encode("You must be logged in to do that", "UTF-8"); 
+            
+            response.sendRedirect("login.jsp?message=" + message);
         }
     }
 
@@ -100,6 +124,6 @@ public class ChangePass extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Changes user info.";
     }// </editor-fold>
 }

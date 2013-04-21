@@ -5,31 +5,31 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.UserServlet</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.UserServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.Login</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.Login</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Register</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.Register</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.Register</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChangePass</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.ChangePass</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.ChangePass</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ChangeInfo</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.ChangeInfo</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.ChangeInfo</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.Logout</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.Logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteUser</servlet-name>
-        <servlet-class>com.blainesmith.userregistration.DeleteUser</servlet-class>
+        <servlet-class>com.cs4230final.userregistration.DeleteUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>

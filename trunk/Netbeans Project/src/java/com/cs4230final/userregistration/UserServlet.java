@@ -2,21 +2,21 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.blainesmith.userregistration;
+package com.cs4230final.userregistration;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Christopher
+ * @author Blaine
  */
-public class Logout extends HttpServlet {
+public class UserServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -30,20 +30,13 @@ public class Logout extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet Logout</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet Logout at " + request.getContextPath() + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-        } finally {            
-            out.close();
+         if(!request.getParameterMap().isEmpty() && request.getParameter("userId") != "")
+        {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            //User user = UserManager.getId(id);
+            //request.setAttribute("user", user);
+            RequestDispatcher disp = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+            disp.forward(request, response);
         }
     }
 
@@ -75,11 +68,7 @@ public class Logout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        
-        session.setAttribute("user", null);
-        
-        response.sendRedirect("login.jsp");
+        processRequest(request, response);
     }
 
     /**
@@ -89,6 +78,6 @@ public class Logout extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Logs user out";
+        return "Short description";
     }// </editor-fold>
 }
