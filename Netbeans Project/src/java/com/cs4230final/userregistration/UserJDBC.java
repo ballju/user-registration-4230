@@ -1,5 +1,5 @@
 
-package com.blainesmith.userregistration;
+package com.cs4230final.userregistration;
 
 public class UserJDBC {
     

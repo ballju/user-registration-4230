@@ -1,4 +1,4 @@
-package com.blainesmith.userregistration;
+package com.cs4230final.userregistration;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
