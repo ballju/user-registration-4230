@@ -1,4 +1,4 @@
-<%@page import="com.blainesmith.userregistration.User"
+<%@page import="com.cs4230final.userregistration.User"
         import="javax.servlet.ServletException"
         import="javax.servlet.http.HttpServlet"
         import="javax.servlet.http.HttpServletRequest"

@@ -4,7 +4,7 @@
     Author     : Christopher
 --%>
 
-<%@page import="com.blainesmith.userregistration.User"%>
+<%@page import="com.cs4230final.userregistration.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     Object u = session.getAttribute("user");
