@@ -22,7 +22,8 @@
 				},
 				description : {
 					email : {
-						required : '<span style="margin-left: 10px; color: red;">Required</span>'
+						required : '<span style="margin-left: 10px; color: red;">Required</span>',
+                                                pattern : '<span style="margin-left: 10px; color: red;">Must be a valid email</span>'
 					},
                                         first : {
 						required : '<span style="margin-left: 10px; color: red;">Required</span>'
