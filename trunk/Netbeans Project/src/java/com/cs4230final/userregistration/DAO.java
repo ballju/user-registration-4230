@@ -143,7 +143,7 @@ public class DAO {
             ResultSet rs = ps.executeQuery();
             
             if (rs.isBeforeFirst()) {
-                user.setError("User already exists");          
+                user.setError("A user with that email already exists");          
                 return user; 
             } 
             
