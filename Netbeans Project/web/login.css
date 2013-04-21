@@ -35,6 +35,11 @@ a
     margin: 2px;
 }
 
+.button:hover 
+{
+    cursor: pointer;
+}
+
 .error-message
 {
     color: red;
