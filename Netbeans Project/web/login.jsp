@@ -39,6 +39,9 @@
 </script>
 </head>
 <body>
+    <div id="content">
+    <div id="wrapper">
+        
 	<h2>Login</h2>
         <% 
           String message = request.getParameter("message");
@@ -55,20 +58,40 @@
           }
         %>
         
-	<form id="loginForm" method="POST" action="Login">
-        <div class="control-group input-append">
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email: <input data-description="email" data-describedby="email-description" data-required id="email" type="text" name="email" /><span id="email-description"></span></p>
+        
+            <form id="loginForm" method="POST" action="Login">
+                <table id="loginTable">
+                    <tr>
+                        <td>
+                            Email: 
+                        </td>
+                        <td>
+                            <div class="control-group input-append">
+                                <input data-description="email" data-describedby="email-description" data-required id="email" type="text" name="email" />
+                                <span id="email-description"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Password: 
+                        </td>
+                        <td>
+                            <div class="control-group input-append">
+                                <input data-required data-description="pass" data-describedby="pass-description" type="password" id="pass" name="pass">
+                                <span id="pass-description"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <input class="button" type="submit" value="Login">
+                <input class="button" type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
+                <br />
+                <br />
+                <input class="button" type="button" value="Register" onclick="document.location.href = 'register.jsp'">
+            </form>
+            
         </div>
-        <div class="control-group input-append">
-            <p>Password: <input data-required data-description="pass" data-describedby="pass-description" type="password" id="pass" name="pass"><span id="pass-description"></span></p>
         </div>
-	<input class="button" type="submit" value="Login">&nbsp;&nbsp;
-<!--        <input type="button" value="Clear">-->
-        </form>
-	<br />
-	<input class="button" type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
-        <br />
-	<input class="button" type="button" value="Register" onclick="document.location.href = 'register.jsp'">
-	</form>
 </body>
 </html>

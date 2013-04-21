@@ -1,8 +1,3 @@
-<%-- 
-    Document   : changeInfo
-    Created on : Apr 14, 2013, 1:06:55 PM
-    Author     : Christopher
---%>
 
 <%@page import="com.cs4230final.userregistration.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

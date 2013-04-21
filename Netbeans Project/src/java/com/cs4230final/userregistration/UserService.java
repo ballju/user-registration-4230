@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.cs4230final.userregistration;
 
 import com.sun.mail.smtp.SMTPTransport;
@@ -18,10 +15,6 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Christopher
- */
 public class UserService {
 
     
