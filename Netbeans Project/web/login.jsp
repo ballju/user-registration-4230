@@ -85,7 +85,7 @@
                     </tr>
                 </table>
                 <input class="button" type="submit" value="Login">
-                <input class="button" type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
+                <input style="margin-left: 15px;" class="button" type="button" value="Forgot Password?" onclick="document.location.href = 'changePass.jsp'">
                 <br />
                 <br />
                 <input class="button" type="button" value="Register" onclick="document.location.href = 'register.jsp'">
